@@ -18,6 +18,7 @@ public class LoginAction extends Action {
 		UserForm userForm = (UserForm) form;
 		String username = userForm.getUsername();
 		String password = userForm.getPassword();
+		System.out.println("---> username: " + username);
 		System.out.println("---> password: " + password);
 
 		if ("root".equalsIgnoreCase(password)) {
