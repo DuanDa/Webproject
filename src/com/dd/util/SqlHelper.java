@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.Properties;
 
 public class SqlHelper {
-	private static final String propertyFilePath = "/Users/Devin/Develop/Android/project/Webproject/src/com/dd/mysql.property";
+	private static final String propertyFilePath = "D:\\Code\\Project\\Webproject\\src\\com\\dd\\mysql.property";
 	private static String username;
 	private static String password;
 	private static String driver;
@@ -34,12 +34,11 @@ public class SqlHelper {
 		Connection connection = getConnection();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			System.out.println("---> params size: " + params.length);
 			for (int i = 0; i < params.length; i++) {
 				preparedStatement.setString(i + 1, params[i]);
 			}
 
-			ResultSet resultSet = preparedStatement.executeQuery(sql);
+			ResultSet resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
 				return true;
 			} else {
